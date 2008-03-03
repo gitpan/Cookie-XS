@@ -1,8 +1,8 @@
 NAME
-    Cookie::XS - Cookie parser in C
+    Cookie::XS - HTTP Cookie parser in C
 
 VERSION
-    This document describes Cookie::XS 0.04 released on Mar 3, 2008.
+    This document describes Cookie::XS 0.05 released on Mar 3, 2008.
 
 SYNOPSIS
         use Cookie::XS;
@@ -32,27 +32,32 @@ SYNOPSIS
 
 DESCRIPTION
     This module implements a very simple parser for cookies used in HTTP
-    applications. We've found CGI::Simple::Cookie rather insufficient in our
-    OpenResty project, hence the rewrite.
+    applications. We've found CGI::Simple::Cookie and CGI::Cookie rather
+    insufficient according to the profiling results for our OpenResty
+    project, hence the rewrite in C.
 
-    This stuff is still in pre-alpha stage and the API is still in flux.
+    This library is still in pre-alpha stage and the API is still in flux.
     We're just following the "release early, releaes often" guideline. So
     please check back often ;)
 
 METHODS
-    We currently implement 2 static methods, "parse" and "fetch". They work
+    We currently provide 2 static methods, "parse" and "fetch". They work
     mostly the same way as those methods found in CGI::Cookie and
     CGI::Simple::Cookie but with the exception that our version returns
-    plain Perl data structures rather than hashes of Perl objects for
-    performance reasons.
+    plain Perl data structures rather than hashes of Perl objects (due to
+    performance considerations).
 
-    We'll implement some dump methods in the near future.
+    We'll implement some cookie dump methods in the near future.
+
+BUGS
+    There must be some serious bugs lurking somewhere. We haven't done
+    comprehensive testing for our code yet. It's a TODO.
 
 SOURCE CONTROL
     For the very latest version of this module, check out the source from
     the SVN repos below:
 
-    <http://svn.openfondry.org/cookieparser>
+    <http://svn.openfoundry.org/cookieparser>
 
     There is anonymous access to all. If you'd like a commit bit, please let
     us know. :)
@@ -65,11 +70,11 @@ SEE ALSO
     CGI::Cookie, CGI::Cookie::Simple.
 
 AUTHOR
-    yuting >yuting at alibaba-inc dot com<. agentzh >agentzh at yahoo dot
-    cn<.
+    yuting "<yuting at alibaba-inc.com>"
+    agentzh "<agentzh at yahoo.cn>"
 
 COPYRIGHT
-    Copyright (c) 2008 by Yahoo! Dhina EEEE Works, Alibaba Inc.
+    Copyright (c) 2008 by Yahoo! China EEEE Works, Alibaba Inc.
 
 License
     The "MIT" License
