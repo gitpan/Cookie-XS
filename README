@@ -2,7 +2,7 @@ NAME
     Cookie::XS - HTTP Cookie parser in C
 
 VERSION
-    This document describes Cookie::XS 0.05 released on Mar 3, 2008.
+    This document describes Cookie::XS 0.06 released on Mar 3, 2008.
 
 SYNOPSIS
         use Cookie::XS;
@@ -49,10 +49,6 @@ METHODS
 
     We'll implement some cookie dump methods in the near future.
 
-BUGS
-    There must be some serious bugs lurking somewhere. We haven't done
-    comprehensive testing for our code yet. It's a TODO.
-
 SOURCE CONTROL
     For the very latest version of this module, check out the source from
     the SVN repos below:
@@ -63,6 +59,9 @@ SOURCE CONTROL
     us know. :)
 
 BUGS
+    There must be some serious bugs lurking somewhere. We haven't done
+    comprehensive testing for our code yet. It's a TODO.
+
     Please report bugs or send wish-list to
     <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Cookie-XS>.
 

@@ -1,3 +1,7 @@
+0.06 Mar 3, 2008
+* Fixed the duplicate BUGS section in the POD.
+* Fixed the version number in META.yml.
+
 0.05 Mar 3, 2008
 * Fixed a lot of typos in the POD.
 

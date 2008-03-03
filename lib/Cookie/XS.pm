@@ -10,7 +10,7 @@ our $VERSION;
 
 use XSLoader;
 BEGIN {
-    $VERSION = '0.05';
+    $VERSION = '0.06';
     XSLoader::load(__PACKAGE__, $VERSION);
 }
 
@@ -33,7 +33,7 @@ Cookie::XS - HTTP Cookie parser in C
 
 =head1 VERSION
 
-This document describes Cookie::XS 0.05 released on Mar 3, 2008.
+This document describes Cookie::XS 0.06 released on Mar 3, 2008.
 
 =head1 SYNOPSIS
 
@@ -74,10 +74,6 @@ We currently provide 2 static methods, C<parse> and C<fetch>. They work mostly t
 
 We'll implement some cookie dump methods in the near future.
 
-=head1 BUGS
-
-There must be some serious bugs lurking somewhere. We haven't done comprehensive testing for our code yet. It's a TODO.
-
 =head1 SOURCE CONTROL
 
 For the very latest version of this module, check out the source from
@@ -89,6 +85,8 @@ There is anonymous access to all. If you'd like a commit bit, please let
 us know. :)
 
 =head1 BUGS
+
+There must be some serious bugs lurking somewhere. We haven't done comprehensive testing for our code yet. It's a TODO.
 
 Please report bugs or send wish-list to
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Cookie-XS>.
