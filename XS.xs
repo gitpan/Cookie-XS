@@ -11,9 +11,9 @@ extern void XS_pack_charPtrPtr( SV* arg, char** array, int count);
 
 char Buffer[COOKIE_LEN_LIMIT];
 
-static int decode_hex_str(const char*, char **);
+static int _decode_hex_str(const char*, char **);
 
-SV* parse_cookie(char* cs) {
+SV* _parse_cookie(char* cs) {
     int i, value_flag;
     char* p;
     char* q;
@@ -36,23 +36,23 @@ SV* parse_cookie(char* cs) {
         if (*p=='=' && value_flag ){
             array = newAV();
             *p = 0; p++;
-            decode_hex_str(q, &decode);
+            _decode_hex_str(q, &decode);
             hv_store(hash, decode, strlen(decode), newRV_noinc((SV *)array), 0);
             q = p; value_flag = 0;
         } else if ( *p == ';' && *(p+1) == ' ') {
             *p = 0; p += 2;
-            decode_hex_str(q, &decode);
+            _decode_hex_str(q, &decode);
             av_push(array, newSVpvf("%s", decode));
             q = p; value_flag = 1;
         } else if ( *p == ';' || *p == '&' ) {
             *p = 0; p++;
-            decode_hex_str(q, &decode);
+            _decode_hex_str(q, &decode);
             av_push(array, newSVpvf("%s", decode));
             q = p;
         }
         p++;
     }
-    decode_hex_str(q, &decode);
+    _decode_hex_str(q, &decode);
     av_push(array, newSVpvf("%s", decode));
     if (decode) free(decode);
     return newRV_noinc((SV *) hash);
@@ -104,7 +104,7 @@ static int decode_hex_octet(const char *s)
 }
 
 
-int decode_hex_str (const char *str, char **out)
+int _decode_hex_str (const char *str, char **out)
 {
     char *dest = *out;
     int i, val;
@@ -135,11 +135,11 @@ PROTOTYPES: DISABLE
 
 
 SV *
-parse_cookie (cs)
+_parse_cookie (cs)
 	char *	cs
 
 int
-decode_hex_str (str, out)
+_decode_hex_str (str, out)
 	char *	str
 	char **	out
 
