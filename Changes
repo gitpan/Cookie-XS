@@ -1,3 +1,6 @@
+0.11 Sep 12 2008
+* Now make it a subclass of CGI::Cookie::XS.
+
 0.10 Aug 4 2008
 * Put a notice saying that Cookie::XS is deprecated; one should use CGI::Cookie::XS instead.
 

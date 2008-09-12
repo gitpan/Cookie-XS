@@ -20,8 +20,7 @@ $VAR1 = {
                      'leiyh'
                    ],
           'foo' => [
-                     'a phrase',
-                     'haha'
+                     'a phrase'
                    ],
           'qux' => [
                      '\''

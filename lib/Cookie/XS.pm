@@ -2,24 +2,9 @@ package Cookie::XS;
 
 use strict;
 use warnings;
+use base 'CGI::Cookie::XS';
 
-our $VERSION;
-
-use XSLoader;
-BEGIN {
-    $VERSION = '0.10';
-    XSLoader::load(__PACKAGE__, $VERSION);
-}
-
-sub fetch {
-    my $class = shift;
-    my $raw_cookie = $ENV{HTTP_COOKIE} || $ENV{COOKIE} or return;
-    $class->parse($raw_cookie);
-}
-
-sub parse {
-    _parse_cookie($_[1]);
-}
+our $VERSION = '0.11';
 
 1;
 __END__
@@ -30,15 +15,14 @@ Cookie::XS - HTTP Cookie parser in C (Please use CGI::Cookie::XS instead)
 
 =head1 VERSION
 
-This document describes Cookie::XS 0.10 released on August 4, 2008.
+This document describes Cookie::XS 0.11 released on September 12, 2008.
 
-I<WARNING:> This module is deprecated now; please use CGI::Cookie::XS instead.
 
 =head1 SYNOPSIS
 
     use Cookie::XS;
 
-    my $raw_cookie = 'foo=a%20phrase;haha; bar=yes%2C%20a%20phrase; baz=%5Ewibble&leiyh; qux=%27';
+    my $raw_cookie = 'foo=a%20phrase; haha; bar=yes%2C%20a%20phrase; baz=%5Ewibble&leiyh; qux=%27';
     my $res = Cookie::XS->parse($raw_cookie);
     # $res is something like:
     #    {
@@ -50,8 +34,7 @@ I<WARNING:> This module is deprecated now; please use CGI::Cookie::XS instead.
     #                 'leiyh'
     #               ],
     #      'foo' => [
-    #                 'a phrase',
-    #                 'haha'
+    #                 'a phrase'
     #               ],
     #      'qux' => [
     #                 '\''
@@ -62,6 +45,8 @@ I<WARNING:> This module is deprecated now; please use CGI::Cookie::XS instead.
     $res = Cookie::XS->fetch;
 
 =head1 DESCRIPTION
+
+B<WARNING: This module is obsolete now; please use CGI::Cookie::XS instead.>
 
 This module implements a very simple parser for cookies used in HTTP applications. We've found L<CGI::Simple::Cookie> and L<CGI::Cookie> rather slow according to the profiling results for our L<OpenResty> project, hence the rewrite in C.
 

@@ -8,15 +8,11 @@ author              ('Agent Zhang <agentzh@yahoo.cn>');
 perl_version        ('5.006001');
 all_from            ('lib/Cookie/XS.pm');
 
-cc_inc_paths    '.';
-cc_files        (glob("*.c"), (-e 'XS.c' ? () : 'XS.c'));
-cc_optimize_flags '-g3';
-can_cc or die "This module requires a C compiler";
-
+requires           ('CGI::Cookie::XS' => '0.15');
 build_requires     ('Test::More');
 #requires           ('CGI::Cookie::XS');
 
-warn "WARNING!!! This module is now deprecated; please use CGI::Cookie::XS instead.\n";
+warn "WARNING!!! This module is now obsolete; please use CGI::Cookie::XS instead.\n";
 
 auto_install();
 WriteAll();
